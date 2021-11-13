@@ -1,0 +1,35 @@
+ALGORITHM length_sentence
+VAR
+    i,length_sentence,sumvowels,sumwords: INTEGER;
+    str: STRING;
+BEGIN
+    i=1;length_sentence:=0;sumvoyels:=0;sumwords:=0;
+    read(str);
+    IF(str[i]=".")
+    Then
+    write("the number of vowels is"sumvowels);
+    write("the number of words is"sumwords);
+    write("the length of your sentence is"length_sentence);
+    END_IF
+
+    WHILE (str[i]<> ".") DO
+        IF(str[i]="a" OR "e" OR "o" OR "i" OR "u" OR "y")
+        THEN
+        sumvowels:=sumvowels+1;
+        length_sentence:=length_sentence+1;
+        i:=i+1;
+        ELSE_IF(str[i]=" ")
+        THEN
+        sumwords:=sumwords+1;
+        i:=i+1;
+        ELSE
+        length_sentence:=length_sentence+1;
+        i:=i+1;
+        END_IF
+
+    END_WHILE
+    write("the number of vowels is"sumvowels);
+    write("the number of words is"sumwords);
+    write("the length of your sentence is"length_sentence);
+    
+END
