@@ -1,0 +1,48 @@
+ALGORITHM sum-no-repetitive
+VAR
+    htab:= HASH_TABLE<INTEGER,INTEGER>;
+    tab1;tab2 := ARRAY_OF INTEGER[10];
+    sum:= INTEGER;
+    count:= INTEGER;
+BEGIN
+    sum:= 0;
+    count:=1;
+    read(tab1);
+    read(tab2);
+    FOR i FROM 1 TO tab1.length STEP 1  DO
+        FOR j FROM 1 TO tab2.length STEP 1  DO
+            IF (tab1[i]=tab2[j]) THEN
+                count:=count+1;
+                htab.insert(tab1[i],count)
+                ELSE
+                    htab.insert(tab1[i],1)
+                END_IF
+            END_IF
+        END_FOR
+        
+    END_FOR
+    FOR j FROM 1 TO tab2.length STEP 1  DO
+        FOR i FROM 1 TO tab1.length STEP 1  DO
+            IF (tab1[i]=tab2[j]) THEN
+                count:=count+1;
+                htab.insert(tab2[j],count)
+                ELSE
+                    htab.insert(tab2[j],1)
+                END_IF
+            END_IF
+        END_FOR
+        
+    END_FOR
+    FOR i FROM 1 TO tab1.length STEP 1 DO
+        IF (htab.get(tab1[i])=1) THEN
+            sum:=sum+tab1[i];
+        END_IF
+    END_FOR
+    FOR j FROM 1 TO tab2.length STEP 1 DO
+        IF (htab.get(tab2[j])=1) THEN
+            sum:=sum+tab2[j];
+        END_IF
+    END_FOR
+    write(sum);
+
+END

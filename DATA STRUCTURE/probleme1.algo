@@ -1,0 +1,32 @@
+ALGORITHM sum-no-repetitive
+VAR
+    tab1 : ARRAY_OF INTEGER[10];
+    tab2 : ARRAY_OF INTEGER[10];
+    i,j,x : INTEGER ;
+    repetitive : BOOLEAN ;
+BEGIN
+    sum:= 0;
+    repetitive=FALSE;
+    read(tab1);
+    read(tab2);
+    FOR i FROM 1 TO tab1.length DO
+        FOR j FROM 1 TO tab2.length DO
+            IF (tab1[i]=tab2[j]) THEN
+                repetitive:=TRUE;
+            END_IF
+        END_FOR
+        IF (repetitive = FALSE) THEN
+        sum :=sum+tab1[i]
+        END_IF
+    END_FOR
+    FOR j FROM 1 TO tab2.length DO
+        FOR i FROM 1 TO tab1.length DO
+            IF (tab1[i]=tab2[j]) THEN
+                repetitive:=TRUE;
+            END_IF
+        END_FOR
+        IF (repetitive = FALSE) THEN
+        sum :=sum+tab1[i]
+        END_IF
+    END_FOR
+END
