@@ -1,0 +1,49 @@
+PROCEDURE dot_product(var x,y : ARRAY_OF FLOAT[50];)
+VAR
+    i,a:= FLOAT
+BEGIN
+    read(x);
+    read(y);
+    i:=1;
+    a:=0;
+    WHILE (i<x.length) DO
+        a:=a+x[i].y[i];
+        i=i+1;
+    END_WHILE
+    IF (a:=0) THEN
+        write("this vectors are orthogonal!")
+        ELSE
+        write(a)
+    END_IF
+    print(a);
+END
+FUNCTION dot_product1(var x,y : ARRAY_OF FLOAT[50]) : FLOAT
+VAR
+    i,a:= FLOAT
+BEGIN
+    read(x);
+    read(y);
+    i:=1;
+    a:=0;
+    WHILE (i<x.length) DO
+        a:=a+x[i].y[i];
+        i=i+1;
+    END_WHILE
+    RETURN a ;
+END
+
+ALGORITHM orthogonal_vect
+VAR
+    n,i :=INTEGER;
+    x,y:= array_name : ARRAY_OF FLOAT[50];
+BEGIN
+    write("give n pairs of vectors");
+    read(n);
+    FOR i FROM 1 TO n STEP 1  DO
+        write("give the first vector");
+        read(x);
+        write("give the second vector");
+        read(y);
+        dot_product(x,y);
+    END_FOR
+END
