@@ -1,0 +1,29 @@
+FUNCTION insertionSort(var arr array_name : ARRAY_OF INTEGER[50]; n:=INTEGER ) : ARRAY_OF INTEGER[50];
+VAR
+    i,key,j:= INTEGER;
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+        key = arr[i];
+		j = i - 1;
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] = arr[j];
+			j = j - 1;
+        END_WHILE
+        arr[j + 1] = key;
+    END_FOR
+    RETURN arr ;
+END
+ALGORITHM insertion_sort
+VAR
+    tab:= ARRAY_OF INTEGER[50];
+    i,n:= INTEGER;
+BEGIN
+    write(" give the number of elements of the table" );
+    read (n);
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write("give an integer to fill the array")
+        read(tab[i]);
+    END_FOR
+    tab:=insertionSort(tab,n);
+    write (tab);
+END
