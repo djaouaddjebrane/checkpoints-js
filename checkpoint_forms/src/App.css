@@ -1,0 +1,21 @@
+body{
+  background-color: rgb(41, 41, 41);
+  min-height: 100vh;
+  display: grid;
+  color: white;
+
+}
+
+#form-container{
+  place-items: center center;
+}
+
+.gmc-logo{
+  height: 72px;
+  width: 72px;
+} 
+
+
+#signup-form{
+  max-width: 330px; 
+}
